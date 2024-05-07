@@ -189,7 +189,11 @@ where
                 }
                 engine.handler.on_binary(data.into(), socket.clone());
                 Ok(())
-            }
+            },
+            Message::Pong(bytes) => {
+                println!("Got a pong! {:?}", bytes);
+                Ok(())
+            },
             Message::Close(_) => break,
             _ => { 
                 println!("[sid={}] unexpected ws message", socket.id);
