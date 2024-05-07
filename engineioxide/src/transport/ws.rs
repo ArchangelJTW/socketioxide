@@ -193,6 +193,7 @@ where
             Message::Close(_) => break,
             _ => { 
                 println!("[sid={}] unexpected ws message", socket.id);
+                println!(":?", msg);
                 Ok(()) 
             },
         }?
